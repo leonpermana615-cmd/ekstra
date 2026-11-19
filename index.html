@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pilih Ekstrakurikuler - SMA Nusantara</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero">
+    <div class="wrap">
+      <h1>Temukan tempat kamu berkembang di luar kelas.</h1>
+      <p>Pilih ekstrakurikuler yang sesuai minatmu, baca kegiatan dan prestasinya, lalu daftar langsung di sini.</p>
+      <a href="#daftar" class="btn btn-primary">Lihat ekstrakurikuler</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="daftar" aria-labelledby="judul-daftar">
+      <div class="section-head">
+        <h2 id="judul-daftar">Daftar ekstrakurikuler</h2>
+        <div class="filters" id="filters" role="group" aria-label="Filter kategori"></div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section id="pendaftaran-saya" class="my-reg" hidden aria-labelledby="judul-saya">
+      <h2 id="judul-saya">Pendaftaran yang sudah dikirim</h2>
+      <ul id="regList"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">SMA Nusantara · Tahun ajaran 2026/2027</div>
+  </footer>
+
+  <!-- Modal detail + form -->
+  <div class="overlay" id="overlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+      <button class="close" id="closeBtn" aria-label="Tutup">&times;</button>
+
+      <div class="modal-top" id="mTop">
+        <span class="emoji" id="mEmoji"></span>
+        <div>
+          <h3 id="mTitle"></h3>
+          <p id="mDesc"></p>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div class="info">
+          <div class="info-block">
+            <h4>Kegiatan</h4>
+            <ul id="mKegiatan"></ul>
+          </div>
+          <div class="info-block">
+            <h4>Penghargaan</h4>
+            <ul id="mPenghargaan" class="awards"></ul>
+          </div>
+          <div class="info-block">
+            <h4>Jadwal &amp; pembina</h4>
+            <p id="mJadwal"></p>
+          </div>
+        </div>
+
+        <form id="regForm" novalidate>
+          <h4>Formulir pendaftaran</h4>
+
+          <label for="nama">Nama lengkap</label>
+          <input type="text" id="nama" name="nama" placeholder="Contoh: Siti Aisyah Putri" autocomplete="name" required>
+          <small class="error" id="errNama"></small>
+
+          <label for="kelas">Kelas</label>
+          <select id="kelas" name="kelas" required>
+            <option value="">Pilih kelas</option>
+            <option>X-1</option><option>X-2</option><option>X-3</option>
+            <option>XI IPA 1</option><option>XI IPA 2</option><option>XI IPS 1</option><option>XI IPS 2</option>
+            <option>XII IPA 1</option><option>XII IPA 2</option><option>XII IPS 1</option><option>XII IPS 2</option>
+          </select>
+          <small class="error" id="errKelas"></small>
+
+          <label for="alasan">Kenapa kamu ingin masuk ekstrakurikuler ini?</label>
+          <textarea id="alasan" name="alasan" rows="4" placeholder="Ceritakan singkat alasan dan harapanmu (minimal 15 karakter)" required></textarea>
+          <small class="error" id="errAlasan"></small>
+
+          <button type="submit" class="btn btn-primary full">Kirim pendaftaran</button>
+        </form>
+
+        <div class="success" id="success" hidden>
+          <div class="check">✓</div>
+          <h4 id="sTitle"></h4>
+          <p id="sText"></p>
+          <button class="btn btn-ghost" id="sClose">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
